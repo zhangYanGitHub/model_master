@@ -136,7 +136,10 @@
                         implementation project(':model_a')
                     }
                 }
-   * 业务组件 main_model 的build.gradle  开发模式 可以打包独立apk  集成模式 作为壳app的library
+   * 业务组件main_model 的build.gradle  开发模式 可以打包独立apk  集成模式 作为壳app的library
+   *  业务组件根据开发模式与否 动态配置 mainfest.xml 在这里有两个mainfest.xml module 文件下的 都有launchActivity application
+   
+      
                     
                      if (rootProject.ext.isModel) {
                          apply plugin: 'com.android.application'
@@ -207,4 +210,14 @@
                          api project(':commolib')
                          annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.libVersion.arouter_compiler"
                      }
+#### commonlib 所有业务组件的依赖的公共组件  
+* 项目中所有的依赖统一集中在这里 该库提供
+* 1、commonlib组件的 AndroidManifest.xml 不是一张空表，这张表中声明了我们 Android应用用到的所有使用权限 uses-permission 和 uses-feature，放到这里是因为在组件开发模式下，所有业务组件就无需在自己的 AndroidManifest.xm 声明自己要用到的权限了。
 
+* 2、commonlib组件的 build.gradle 需要统一依赖业务组件中用到的 第三方依赖库和jar包，例如我们用到的ActivityRouter、Okhttp等等。
+
+* 3、commonlib组件中封装了Android应用的 Base类和网络请求工具、图片加载工具等等，公用的 widget控件也应该放在Common 组件中；业务组件中都用到的数据也应放于Common组件中，例如保存到 SharedPreferences 和 DataBase 中的登陆数据；
+
+* 4、commonlib组件的资源文件中需要放置项目公用的 Drawable、layout、sting、dimen、color和style 等等，另外项目中的 Activity 主题必须定义在 Common中，方便和 BaseActivity 配合保持整个Android应用的界面风格统一。
+
+####参考博客：http://blog.csdn.net/guiying712/article/details/55213884  非常详细 可以看看
