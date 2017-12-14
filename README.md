@@ -1,6 +1,6 @@
 
  # model_master
- ####1.全局配置 config.build
+ #### 1.全局配置 config.build
  * 包括 开发模式和集成模式的切换
  * 第三方依赖库版本号统一管理
  
@@ -42,7 +42,7 @@
                               Glide               : "4.4.0",
                               constraint_layout   : "1.0.2"
                       ] 
-   ####2.在各个子module中根据isModel的值进行配置
+   #### 2.在各个子module中根据isModel的值进行配置
    * app壳工程配置 
    
                 apply plugin: 'com.android.application'
