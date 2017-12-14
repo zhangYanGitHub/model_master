@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
  # model_master
  ####1.全局配置 config.build
  * 包括 开发模式和集成模式的切换
@@ -207,6 +207,4 @@
                          api project(':commolib')
                          annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.libVersion.arouter_compiler"
                      }
-=======
-# Android 组件化Demo
->>>>>>> 88969bd4e7ead943ceb52f16452efbc6f480a5bf
+
