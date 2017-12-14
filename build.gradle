@@ -1,0 +1,34 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: 'config.gradle'
+buildscript {
+
+    repositories {
+        google()
+//        mavenCentral()//Butter Knife
+        jcenter()
+    }
+    dependencies {
+//        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'//Butter Knife 最新版与android studio 3.0不兼容
+        classpath 'com.android.tools.build:gradle:3.0.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+//        mavenCentral()//Butter Knife
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        //支持arr包
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

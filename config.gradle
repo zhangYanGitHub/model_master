@@ -1,0 +1,50 @@
+ext {
+
+    /**
+     *  true  开发模式 业务组件可以自由打包为apk
+     *  false  集成模式
+     */
+    isModel = false
+    isDebuggable = true //是否 可调试  日志开关
+    outputDir = "F:/buildDir"
+    LOG_DEBUG = isDebuggable.toString()
+    setting = [
+            applicatuionID   : "com.zhang.module",
+            appVersionCode   : 1,
+            appVersionName   : "1.0.0",
+            minSdkVersion    : 16,
+            targetSdkVersion : 26,
+            compileSdkVersion: 26,
+            buildToolsVersion: "26.0.2"
+    ]
+
+    keyStore = [
+            keyAlias     : "zhangyan",
+            keyPassword  : "zhangyan",
+            storeFile    : "../key/fanlle.jks",
+            storePassword: "zhangyan"
+    ]
+    libVersion = [
+            support_v7_appcompat: "26.1.0",
+            support_v4_appcompat: "26.1.0",
+            support_design: "26.1.0",
+            test_junit          : "4.12",
+            test_runner         : "1.0.1",
+            test_espresso_core  : "3.0.1",
+            Picture_Selector    : "v2.1.7",
+            arouter_api         : "1.2.4",
+            arouter_compiler    : "1.0.4",
+            logger              : "2.1.1",
+            Glide               : "4.4.0",
+            constraint_layout   : "1.0.2"
+    ]
+
+//    dependences = [
+//            constraint_layout   : "com.android.support.constraint:constraint-layout:$rootProject.ext.libVersion.constraint_layout",
+//            support_v7_appcompat: "com.android.support:appcompat-v7:$rootProject.ext.libVersion.support_v7_appcompat",
+//            test_junit          : "junit:junit:$rootProject.ext.libVersion.test_junit",
+//            test_runner         : "com.android.support.test:runner:$rootProject.ext.libVersion.test_runner",
+//            test_espresso_core  : "com.android.support.test.espresso:espresso-core:$rootProject.ext.libVersion.test_espresso_core",
+//            Picture_Selector    : "com.github.LuckSiege.PictureSelector:picture_library:$rootProject.ext.libVersion.Picture_Selector"
+//    ]
+}

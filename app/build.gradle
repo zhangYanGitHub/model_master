@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+
+def buildTime() {
+    return new Date().format("yyyy-MM-dd HH:mm:ss")
+}
+
+android {
+
+    signingConfigs {
+        release {
+            keyAlias rootProject.ext.keyStore.keyAlias
+            keyPassword rootProject.ext.keyStore.keyPassword
+            storeFile file(rootProject.ext.keyStore.storeFile)
+            storePassword rootProject.ext.keyStore.storePassword
+        }
+
+    }
+    buildToolsVersion rootProject.ext.setting.buildToolsVersion
+    compileSdkVersion rootProject.ext.setting.compileSdkVersion
+    defaultConfig {
+        applicationId rootProject.ext.setting.applicatuionID
+        minSdkVersion rootProject.ext.setting.minSdkVersion
+        targetSdkVersion rootProject.ext.setting.targetSdkVersion
+        versionCode rootProject.ext.setting.appVersionCode
+        versionName rootProject.ext.setting.appVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "boolean", "LOG_DEBUG", rootProject.ext.LOG_DEBUG
+        multiDexEnabled true
+        //打包时间
+        resValue "string", "build_time", buildTime()
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            //更改AndroidManifest.xml中预先定义好占位符信息
+            //manifestPlaceholders = [app_icon: "@drawable/icon"]
+            debuggable rootProject.ext.isDebuggable
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
+            // 缩减resource文件
+            shrinkResources true
+            //Proguard
+            minifyEnabled true
+            //签名
+            signingConfig signingConfigs.release
+
+        }
+        debug {
+            debuggable rootProject.ext.isDebuggable
+            //签名
+            signingConfig signingConfigs.release
+        }
+
+    }
+    applicationVariants.all { variant ->
+        //这个修改输出的APK路径
+        if (variant.buildType.name != "debug") {//防止AS无法安装debug包(apk)
+            variant.getPackageApplication().outputDirectory = new File(rootProject.ext.outputDir)
+        }
+        variant.getPackageApplication().outputScope.apkDatas.forEach { apkData ->
+            //这个修改输出APK的文件名
+            apkData.outputFileName = "Model_" +
+                    variant.versionName + "_" +
+                    variant.flavorName + "_" +
+                    ".apk"
+        }
+    }
+    flavorDimensions "type"
+    productFlavors {
+        Test {
+            dimension "type"
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    if (rootProject.ext.isModel) {
+        implementation project(':commolib')
+
+    } else {
+        implementation project(':main_model')
+        implementation project(':model_a')
+    }
+}
+
