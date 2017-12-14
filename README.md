@@ -220,4 +220,4 @@
 
 * 4、commonlib组件的资源文件中需要放置项目公用的 Drawable、layout、sting、dimen、color和style 等等，另外项目中的 Activity 主题必须定义在 Common中，方便和 BaseActivity 配合保持整个Android应用的界面风格统一。
 
-####参考博客：http://blog.csdn.net/guiying712/article/details/55213884  非常详细 可以看看
+####  参考博客：http://blog.csdn.net/guiying712/article/details/55213884  非常详细 可以看看
