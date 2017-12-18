@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.setting.compileSdkVersion
+
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.setting.minSdkVersion
+        targetSdkVersion rootProject.ext.setting.targetSdkVersion
+        versionCode rootProject.ext.setting.versionCode
+        versionName rootProject.ext.setting.versionName
+        buildConfigField "boolean", "LOG_DEBUG", rootProject.ext.LOG_DEBUG
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //api  与 compile 一样  外部可访问
+    // implement指令 对于使用了该命令编译的依赖，对该项目有依赖的项目将无法访问到使用该命令编译的依赖中的任何程序，也就是将该依赖隐藏在内部，而不对外部公开。
+    //Android Support
+    api("com.android.support.constraint:constraint-layout:$rootProject.ext.libVersion.constraint_layout")
+    api("com.android.support:appcompat-v7:$rootProject.ext.libVersion.support_v7_appcompat")
+    api("com.android.support:support-v4:$rootProject.ext.libVersion.support_v4_appcompat")
+    api("com.android.support:design:$rootProject.ext.libVersion.support_design")
+    api("junit:junit:$rootProject.ext.libVersion.test_junit")
+    api("com.android.support.test:runner:$rootProject.ext.libVersion.test_runner")
+    api("com.android.support.test.espresso:espresso-core:$rootProject.ext.libVersion.test_espresso_core")
+
+    //日志打印  https://github.com/orhanobut/logger
+    implementation("com.orhanobut:logger:$rootProject.ext.libVersion.logger")
+
+    //ARouter   Android平台中对页面、服务提供路由功能的中间件 https://github.com/alibaba/ARouter
+    api("com.alibaba:arouter-api:$rootProject.ext.libVersion.arouter_api") {
+    }
+    //本地图片选择器  https://github.com/LuckSiege/PictureSelector 只能通过工具类 访问
+    implementation("com.github.LuckSiege.PictureSelector:picture_library:$rootProject.ext.libVersion.Picture_Selector") {
+        exclude group: 'com.android.support'
+    }
+    //快速高效的Android图片加载库  https://github.com/bumptech/glide 只能通过工具类 访问
+    implementation("com.github.bumptech.glide:glide:$rootProject.ext.libVersion.Glide") {
+        exclude group: 'com.android.support'
+    }
+}

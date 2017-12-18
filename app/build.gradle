@@ -85,8 +85,8 @@ dependencies {
         implementation project(':commolib')
 
     } else {
-        implementation project(':main_model')
-        implementation project(':model_a')
+        implementation project(':module_main')
+        implementation project(':module_a')
     }
 }
 

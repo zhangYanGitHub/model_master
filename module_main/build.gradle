@@ -1,0 +1,69 @@
+if (rootProject.ext.isModel) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+android {
+
+    buildToolsVersion rootProject.ext.setting.buildToolsVersion
+    compileSdkVersion rootProject.ext.setting.compileSdkVersion
+    signingConfigs {
+        release {
+            keyAlias rootProject.ext.keyStore.keyAlias
+            keyPassword rootProject.ext.keyStore.keyPassword
+            storeFile file(rootProject.ext.keyStore.storeFile)
+            storePassword rootProject.ext.keyStore.storePassword
+        }
+
+    }
+    defaultConfig {
+        println "main_model ==========="
+        if(rootProject.ext.isModel){
+            applicationId rootProject.ext.setting.applicatuionID
+            //给applicationId添加后缀“.main_model”
+            applicationIdSuffix ".main_model"
+        }
+        minSdkVersion rootProject.ext.setting.minSdkVersion
+        targetSdkVersion rootProject.ext.setting.targetSdkVersion
+        versionCode rootProject.ext.setting.versionCode
+        versionName rootProject.ext.setting.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+    sourceSets {
+        main {
+            if (rootProject.ext.isModel) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                //集成开发模式下排除debug文件夹中的所有Java文件
+                java {
+                    exclude 'com/zhang/debug/**'
+                }
+            }
+        }
+    }
+    buildTypes {
+        release {
+
+//            manifestPlaceholders = [package: rootProject.ext.setting.applicatuionID]
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (rootProject.ext.isModel) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(':lib_common')
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.libVersion.arouter_compiler"
+}

@@ -3,10 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/commolib/commolib.iml" filepath="$PROJECT_DIR$/commolib/commolib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/main_model/main_model.iml" filepath="$PROJECT_DIR$/main_model/main_model.iml" />
-      <module fileurl="file://$PROJECT_DIR$/model_a/model_a.iml" filepath="$PROJECT_DIR$/model_a/model_a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/model_master.iml" filepath="$PROJECT_DIR$/model_master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_A/module_a.iml" filepath="$PROJECT_DIR$/module_A/module_a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_main/module_main.iml" filepath="$PROJECT_DIR$/module_main/module_main.iml" />
     </modules>
   </component>
 </project>
