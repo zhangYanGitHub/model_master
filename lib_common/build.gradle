@@ -55,4 +55,7 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:$rootProject.ext.libVersion.Glide") {
         exclude group: 'com.android.support'
     }
+
+    // 复杂布局  http://tangram.pingguohe.net/docs/android/access-tangram
+    api "com.alibaba.android:tangram:$rootProject.ext.libVersion.tangram@aar"
 }

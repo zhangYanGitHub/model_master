@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.github.LuckSiege.PictureSelector:picture_library-v2.1.7">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/picture_library-v2.1.7.aar/8ceb3b4bfe21a6f1721ee94ba0c34171/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/picture_library-v2.1.7.aar/8ceb3b4bfe21a6f1721ee94ba0c34171/res" />
+      <root url="jar://D:/cache/gradle/caches/transforms-1/files-1.1/picture_library-v2.1.7.aar/cc49be1666823d8ceadb3b41df1ef18a/jars/classes.jar!/" />
+      <root url="file://D:/cache/gradle/caches/transforms-1/files-1.1/picture_library-v2.1.7.aar/cc49be1666823d8ceadb3b41df1ef18a/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

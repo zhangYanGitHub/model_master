@@ -12,7 +12,7 @@ ext {
             applicatuionID   : "com.zhang.module",
             appVersionCode   : 1,
             appVersionName   : "1.0.0",
-            minSdkVersion    : 16,
+            minSdkVersion    : 15,
             targetSdkVersion : 26,
             compileSdkVersion: 26,
             buildToolsVersion: "26.0.2"
@@ -27,7 +27,7 @@ ext {
     libVersion = [
             support_v7_appcompat: "26.1.0",
             support_v4_appcompat: "26.1.0",
-            support_design: "26.1.0",
+            support_design      : "26.1.0",
             test_junit          : "4.12",
             test_runner         : "1.0.1",
             test_espresso_core  : "3.0.1",
@@ -36,7 +36,8 @@ ext {
             arouter_compiler    : "1.0.4",
             logger              : "2.1.1",
             Glide               : "4.4.0",
-            constraint_layout   : "1.0.2"
+            constraint_layout   : "1.1.0",
+            tangram             : "2.2.4"
     ]
 
 //    dependences = [

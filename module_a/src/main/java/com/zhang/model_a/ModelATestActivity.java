@@ -1,17 +1,17 @@
 package com.zhang.model_a;
 
-import android.os.Bundle;
-
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.zhang.commolib.base.BaseActivity;
+import com.zhang.commolib.base.BasePresenter;
+import com.zhang.commolib.constant.ConstantActivity;
 
-@Route(path = "/model_a/ModelATestActivity")
+@Route(path = ConstantActivity.Model_A_Test_Activity)
 public class ModelATestActivity extends BaseActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
     }
 
     @Override

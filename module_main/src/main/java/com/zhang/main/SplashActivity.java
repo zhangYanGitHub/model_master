@@ -3,12 +3,19 @@ package com.zhang.main;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.zhang.commolib.base.BaseActivity;
+import com.zhang.commolib.base.BasePresenter;
+import com.zhang.commolib.constant.ConstantActivity;
+import com.zhang.commolib.utils.RouterUtils;
 
-@Route(path = "/main_model/SplashActivity")
+@Route(path = ConstantActivity.Splash_Activity)
 public class SplashActivity extends BaseActivity {
 
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
+    }
 
     @Override
     protected int getResourceID() {
@@ -22,6 +29,6 @@ public class SplashActivity extends BaseActivity {
 
 
     public void onClick(View view) {
-        ARouter.getInstance().build("/main_model/mainActivity").navigation();
+        RouterUtils.skip(ConstantActivity.Main_Activity);
     }
 }

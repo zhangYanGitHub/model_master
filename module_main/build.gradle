@@ -19,7 +19,7 @@ android {
     }
     defaultConfig {
         println "main_model ==========="
-        if(rootProject.ext.isModel){
+        if (rootProject.ext.isModel) {
             applicationId rootProject.ext.setting.applicatuionID
             //给applicationId添加后缀“.main_model”
             applicationIdSuffix ".main_model"
@@ -64,6 +64,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api project(':lib_common')
+    implementation project(':lib_common')
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.libVersion.arouter_compiler"
 }

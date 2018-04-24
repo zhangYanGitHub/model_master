@@ -3,15 +3,14 @@
     package="com.zhang.main">
 
     <application>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".SplashActivity">
-
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SplashActivity"
+            android:theme="@style/SplashActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

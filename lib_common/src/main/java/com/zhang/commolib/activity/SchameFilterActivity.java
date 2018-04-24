@@ -24,26 +24,5 @@ public class SchameFilterActivity extends AppCompatActivity {
         finish();
     }
 
-//    public static void loadImage2(ImageView imageView, Object url, int resId) {
-//
-//        if (Build.VERSION.SDK_INT >= 23) {
-//            imageView.setImageResource(resId);
-//            Glide.with(SchameFilterActivity.this).load(url).diskCacheStrategy(DiskCacheStrategy.RESOURCE).centerCrop().error(com.zhang.commolib.R.drawable.ic_check).into(new SimpleTarget<GlideDrawable>() {
-//                @Override
-//                public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
-//                    imageView.setImageDrawable(resource);
-//                }
-//            });
-//        } else {
-//
-////            Glide.with(context).load(url).diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(pre_drawable).error(error_drawable).into(imageView);
-//            Glide.with(this)
-//                    .load(url)
-//                    .placeholder(resId)
-////                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                    .centerCrop()
-//                    .error(com.zhang.commolib.R.drawable.ic_camera)
-//                    .into(imageView);
-//        }
-//    }
+
 }

@@ -4,8 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_photo/lib_photo.iml" filepath="$PROJECT_DIR$/lib_photo/lib_photo.iml" />
       <module fileurl="file://$PROJECT_DIR$/model_master.iml" filepath="$PROJECT_DIR$/model_master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module_A/module_a.iml" filepath="$PROJECT_DIR$/module_A/module_a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_a/module_a.iml" filepath="$PROJECT_DIR$/module_a/module_a.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_main/module_main.iml" filepath="$PROJECT_DIR$/module_main/module_main.iml" />
     </modules>
   </component>

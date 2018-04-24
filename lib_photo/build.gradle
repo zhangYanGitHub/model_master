@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.setting.minSdkVersion
+        targetSdkVersion rootProject.ext.setting.targetSdkVersion
+        versionCode rootProject.ext.setting.versionCode
+        versionName rootProject.ext.setting.versionName
+        buildConfigField "boolean", "LOG_DEBUG", rootProject.ext.LOG_DEBUG
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

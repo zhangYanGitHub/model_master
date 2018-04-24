@@ -1,13 +1,19 @@
 package com.zhang.commolib.base;
 
 import android.app.Application;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.widget.ImageView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
+import com.tmall.wireless.tangram.TangramBuilder;
+import com.tmall.wireless.tangram.util.IInnerImageSetter;
 import com.zhang.commolib.BuildConfig;
+import com.zhang.commolib.utils.GlideUtil;
 
 /**
  * Created by 张俨 on 2017/12/7.
@@ -37,5 +43,18 @@ public class BaseApplication extends Application {
                 return LOG_DEBUG;
             }
         });
+
+        TangramBuilder.init(getApplicationContext(), new IInnerImageSetter() {
+            @Override
+            public <IMAGE extends ImageView> void doLoadImageUrl(@NonNull IMAGE view,
+                                                                 @Nullable String url) {
+                GlideUtil.loadImageView(getApplicationContext(),url,view);
+            }
+        }, ImageView.class);
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
     }
 }

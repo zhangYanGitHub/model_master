@@ -5,10 +5,12 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zhang.commolib.base.BaseActivity;
+import com.zhang.commolib.base.BasePresenter;
+import com.zhang.commolib.constant.ConstantActivity;
+import com.zhang.commolib.utils.RouterUtils;
 
-@Route(path = "/main_model/mainActivity")
+@Route(path = ConstantActivity.Main_Activity)
 public class MainActivity extends BaseActivity {
-
 
 
     @Override
@@ -21,8 +23,12 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
+    }
 
     public void onClick(View view) {
-        ARouter.getInstance().build("/model_a/ModelATestActivity").navigation();
+        RouterUtils.skip(ConstantActivity.Model_A_Test_Activity);
     }
 }

@@ -2,6 +2,6 @@
     package="com.zhang.model_a">
     <!-- 组件app 配置文件 -->
     <application>
-        <activity android:name="com.zhang.model_a.ModelATestActivity"/>
+        <activity android:name="com.zhang.model_a.ModelATestActivity" />
     </application>
 </manifest>

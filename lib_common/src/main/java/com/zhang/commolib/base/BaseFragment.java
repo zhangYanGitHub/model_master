@@ -16,7 +16,7 @@ import com.zhang.commolib.utils.AppLog;
 public abstract class BaseFragment extends Fragment {
 
     protected static String TAG;
-
+    private View mRootView;
 
     @Nullable
     @Override
@@ -24,13 +24,18 @@ public abstract class BaseFragment extends Fragment {
         final int resourceID = getResourceID();
         TAG = this.getClass().getName();
         if (resourceID != 0) {
-            inflater.inflate(resourceID, container, false);
+            mRootView = inflater.inflate(resourceID, container, false);
         } else {
             AppLog.e(TAG, " getResourceID() == 0");
             getActivity().finish();
         }
-        return super.onCreateView(inflater, container, savedInstanceState);
+        initData();
+        return mRootView;
+
+
     }
+
+    protected abstract void initData();
 
     protected abstract int getResourceID();
 }

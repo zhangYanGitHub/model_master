@@ -81,12 +81,13 @@ android {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':lib_common')
     if (rootProject.ext.isModel) {
-        implementation project(':commolib')
 
     } else {
         implementation project(':module_main')
         implementation project(':module_a')
+        implementation project(':lib_photo')
     }
 }
 
